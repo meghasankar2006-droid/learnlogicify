@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int maxe=0;
+        int [] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+            if(maxe<arr[i]){
+                maxe=arr[i];
+            }
+        }
+        int f=0;
+        int l=1;
+        int c=0;
+        int min=arr[0];
+        int max=0;
+        for(int j=1;c<maxe;j++){
+            c=l+f;
+            f=l;
+            l=c;
+            for(int i=0;i<n;i++){
+                if(arr[i]==c && arr[i]<min){
+                    min=arr[i];
+                }
+                if(arr[i]==c && arr[i]>max){
+                    max=arr[i];
+                }
+            }
+        }
+        System.out.println(min+" "+max);
+    }
+}
